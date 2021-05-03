@@ -14,8 +14,8 @@ module.exports = {
 
     shareDriverLocation: {
         properties: {
-            latitude: { type: ["number"] },
-            longitude: { type: ["number"] },
+            latitude: { type: ["string"] },
+            longitude: { type: ["string"] },
         },
         required: ["latitude", "longitude"],
         additionalProperties: false,

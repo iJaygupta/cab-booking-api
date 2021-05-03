@@ -1,8 +1,8 @@
 module.exports = {
     getNearByCabs: {
         properties: {
-            latitude: { type: ["number"] },
-            longitude: { type: ["number"] },
+            latitude: { type: ["string"] },
+            longitude: { type: ["string"] },
         },
         required: ["latitude", "longitude"],
         additionalProperties: false,
