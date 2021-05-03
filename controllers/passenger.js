@@ -36,7 +36,7 @@ exports.getNearByCabs = async function (request, response) {
         if (availableCabs.length < 1) {
             return response.json({ "message": "No cabs available!" });
         }
-        response.json({ availableCabs });
+        response.json({ available_cabs: availableCabs });
     } catch (error) {
         response.status(500).json({
             "status": "failure",

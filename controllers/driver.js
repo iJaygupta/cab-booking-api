@@ -41,7 +41,16 @@ exports.registerDriver = async function (request, response) {
             });
         }
         let res = await Driver.getModel().insertMany(data);
-        response.status(201).json(res[0]);
+        response.status(201).json(
+            {
+                "id": res[0]._id,
+                "name": res[0].name,
+                "email": res[0].email,
+                "phone_number": res[0].phone_number,
+                "license_number": res[0].license_number,
+                "car_number": res[0].car_number
+            }
+        );
     } catch (error) {
         response.status(500).json({
             "status": "failure",
@@ -58,8 +67,8 @@ exports.registerDriver = async function (request, response) {
  */
 exports.shareDriverLocation = async function (request, response) {
     try {
-        let latitude = Number(request.params.id);
-        let longitude = Number(request.params.id);
+        let latitude = Number(request.body.latitude);
+        let longitude = Number(request.body.longitude);
 
         let data = {
             driverId: mongoose.Types.ObjectId(request.params.id),
